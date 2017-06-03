@@ -4,7 +4,7 @@ export class IngredientsInput extends Component {
   render(){
     return(
       <div>
-        Ingredients Input
+        Ingredients input
       </div>
     )
   }
