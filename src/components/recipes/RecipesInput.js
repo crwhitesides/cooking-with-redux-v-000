@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { addRecipe } from '../../actions/recipes'
-
-
+console.log(addRecipe)
 
 
 export class RecipesInput extends Component {
@@ -65,7 +64,7 @@ export class RecipesInput extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addRecipe: addRecipe}, dispatch)
+  return bindActionCreators({ addRecipe }, dispatch)
 }
 
 export const ConnectedRecipesInput = connect(null, mapDispatchToProps)(RecipesInput)
