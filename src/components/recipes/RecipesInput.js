@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { addRecipe } from '../../actions/recipes'
-console.log(addRecipe)
+import { AddIngredients } from '../ingredients/AddIngredients'
 
 
 export class RecipesInput extends Component {
@@ -30,7 +30,8 @@ export class RecipesInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault()
-    this.props.addRecipe(this.state)
+    let recipe = Object.assign({}, this.state, {ingredientIds: this.props.selectedIngredients})
+    this.props.addRecipe(recipe)
     this.setState({
       name: '',
       calories: ''
@@ -56,6 +57,7 @@ export class RecipesInput extends Component {
               placeholder='number of calories'
               onChange={(event) => this.handleOnCaloriesChange(event)} />
           </p>
+          <AddIngredients />
           <input type='submit'/>
         </form>
       </div>
@@ -67,4 +69,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addRecipe }, dispatch)
 }
 
-export const ConnectedRecipesInput = connect(null, mapDispatchToProps)(RecipesInput)
+function mapStateToProps(state) {
+  return { selectedIngredients: state.recipeForm.ingredientIds }
+}
+
+export const ConnectedRecipesInput = connect(mapStateToProps, mapDispatchToProps)(RecipesInput)

@@ -5,7 +5,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Link to="/recipes/new">Create Recipe </Link>
+        <Link to="/recipes/new">Create Recipe</Link>
       </div>
     );
   }
