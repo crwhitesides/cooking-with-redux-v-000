@@ -1,4 +1,4 @@
-export function recipeForm(state = {
+export default function recipeForm(state = {
   ingredientIds: []
 }, action){
   switch (action.type) {

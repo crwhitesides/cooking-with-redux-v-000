@@ -1,6 +1,6 @@
 import uuidV4  from 'uuid/v4';
 
-export function recipes(state = [], action){
+export default function recipes(state = [], action){
   switch (action.type) {
 
     case 'ADD_RECIPE':

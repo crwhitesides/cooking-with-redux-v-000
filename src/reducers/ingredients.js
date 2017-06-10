@@ -1,6 +1,6 @@
 import uuidV4  from 'uuid/v4';
 
-export function ingredients(state = [], action){
+export default function ingredients(state = [], action){
   switch (action.type) {
 
     case 'CREATE_INGREDIENT':
